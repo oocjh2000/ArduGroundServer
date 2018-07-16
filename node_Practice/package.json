@@ -1,0 +1,12 @@
+{
+  "name": "node_practice",
+  "version": "0.0.0",
+  "description": "node_Practice",
+  "main": "app.js",
+  "author": {
+    "name": "chats"
+  },
+  "devDependencies": {
+    "@types/node": "^6.0.87"
+  }
+}

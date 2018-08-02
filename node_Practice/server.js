@@ -19,10 +19,10 @@ User.prototype.introduce = function () {
 var chris = new User('chris');
 chris.greeting().introduce();
 app.get('/', function (req, res) {
-    res.send('h/w');
+    res.send('유종효특: 병신tv봄 얼라이언스임 시키는거 안함\n' + res.connection.localPort);
 });
-app.listen(3000, function () {
-    console.log('Example app listening on port 3000!');
+app.listen(80, function () {
+    console.log('Example app listening');
 });
 app.get('/users', function (req, res) {
     res.json(users);

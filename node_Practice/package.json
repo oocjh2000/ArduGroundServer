@@ -10,6 +10,7 @@
     "@types/node": "^6.0.87"
   },
   "dependencies": {
+    "body-parser": "^1.18.3",
     "conventional-changelog-express": "^2.0.0"
   }
 }

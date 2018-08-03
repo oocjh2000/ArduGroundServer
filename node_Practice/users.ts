@@ -6,14 +6,14 @@ router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: true }));
 
 let users = [
-    { id: 0, name: 'test' }
+    { id: 0, name: 'test', hp: 100 }
 ];
 
 
 
 router.delete('/reset', (req, res) => {
     users = [
-        { id: 0, name: 'test' }
+        { id: 0, name: 'test', hp:100 }
     ];
     res.status(200).send(users).json
 });
@@ -62,7 +62,7 @@ router.post('/', (req, res) => {
     const name = req.body.name || '';
     if (!name.length) return res.status(400).json({ error: 'incorrenct name' });
     const id = users.reduce((maxId, user) => { return user.id > maxId ? user.id : maxId }, 0) + 1;
-    const newUser = { id: id, name: name };
+    const newUser = { id: id, name: name, hp:100 };
     users.push(newUser);
     return res.status(201).json(newUser);
 

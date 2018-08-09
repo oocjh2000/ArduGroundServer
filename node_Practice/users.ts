@@ -19,7 +19,7 @@ router.delete('/reset', (req, res) => {
 });
 
 router.get('/', (req, res) => {
-    res.json(users);
+    res.status(200).json(users);
     console.log('asdf');
 });
 
@@ -59,8 +59,10 @@ router.delete('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
 
-    const name = req.body.name || '';
-    if (!name.length) return res.status(400).json({ error: 'incorrenct name' });
+    const name = req.body.name || '새로운 사용자';
+    
+   
+    if (!name.length) return res.status(402).json({ error: 'incorrenct name' });
     const id = users.reduce((maxId, user) => { return user.id > maxId ? user.id : maxId }, 0) + 1;
     const newUser = { id: id, name: name, hp:100 };
     users.push(newUser);

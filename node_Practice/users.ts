@@ -21,7 +21,11 @@ router.delete('/reset', (req, res) => {
 
 router.get('/', (req, res) => {
     res.status(200).json(users);
-    console.log('asdf');
+    console.log('전체조회');
+});
+
+router.get('/count', (req, res) => {
+    res.status(200).json(users.length - 1);
 });
 
 router.get('/:id', (req, res) => {

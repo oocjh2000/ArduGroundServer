@@ -11,14 +11,15 @@ router.delete('/reset', (req, res) => {
     users = [
         { id: 0, name: 'test', hp: 100 }
     ];
-    res.status(200).send(users).json;
+    res.status(200).json(users);
 });
 router.get('/', (req, res) => {
     res.status(200).json(users);
     console.log('전체조회');
 });
 router.get('/count', (req, res) => {
-    res.status(200).json(users.length - 1);
+    var count = { count: users.length - 1 };
+    res.status(200).json(count);
 });
 router.get('/:id', (req, res) => {
     const id = parseInt(req.params.id, 10);
@@ -46,11 +47,11 @@ router.delete('/:id', (req, res) => {
     res.status(204).send();
 });
 router.post('/', (req, res) => {
-    console.log(req.body.name + '유저생성');
     const name = req.body.name || '';
     if (!name.length)
         return res.status(400).json({ error: 'incorrenct name' });
     const id = users.reduce((maxId, user) => { return user.id > maxId ? user.id : maxId; }, 0) + 1;
+    console.log(req.body.name + id + '유저생성');
     const newUser = { id: id, name: name, hp: 100 };
     users.push(newUser);
     return res.status(201).json(newUser);
